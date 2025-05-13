@@ -1,0 +1,6 @@
+<configs patcher-version="7">
+  <modelse>
+	<csv xpath="/progression/crafting_skills/crafting_skill[@name='craftingElectrician']/display_entry/unlock_entry[contains(@item, 'switch')]/@item" delim="," op="add">ocbPushButtonVariantHelper</csv>
+	<csv xpath="/progression/crafting_skills/crafting_skill[@name='craftingElectrician']/effect_group/passive_effect[contains(@tags, 'switch')]/@tags" delim="," op="add">ocbPushButtonVariantHelper</csv>
+  </modelse>
+</configs>

@@ -1,0 +1,127 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <PATH_7D2D_MANAGED Condition=" '$(PATH_7D2D_MANAGED)' == '' ">..\..\7DaysToDie_Data\Managed</PATH_7D2D_MANAGED>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <BaseIntermediateOutputPath>build\obj\$(AssemblyName)</BaseIntermediateOutputPath>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{734C1BFA-B525-474B-B915-1AF3327BFE76}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>ElectricityButtonsPush</RootNamespace>
+    <AssemblyName>ElectricityButtonsPush</AssemblyName>
+    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <Deterministic>true</Deterministic>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>build\bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <PostBuildEvent>
+      copy /Y /B "$(AssemblyName).dll" "..\..\..\$(AssemblyName).dll"
+    </PostBuildEvent>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>build\bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <PostBuildEvent>
+      copy /Y /B "$(AssemblyName).dll" "..\..\..\$(AssemblyName).dll"
+    </PostBuildEvent>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="0Harmony">
+      <HintPath>D:\7 Days to Die Dedicated Server - DF\Mods\0_TFP_Harmony\0Harmony.dll</HintPath>
+    </Reference>
+    <Reference Include="Assembly-CSharp">
+      <HintPath>D:\7 Days to Die Dedicated Server - DF\7DaysToDieServer_Data\Managed\Assembly-CSharp.dll</HintPath>
+    </Reference>
+    <Reference Include="mscorlib">
+      <HintPath>$(PATH_7D2D_MANAGED)\mscorlib.dll</HintPath>
+    </Reference>
+    <Reference Include="LogLibrary">
+      <HintPath>D:\7 Days to Die Dedicated Server - DF\7DaysToDieServer_Data\Managed\LogLibrary.dll</HintPath>
+    </Reference>
+    <Reference Include="System">
+      <HintPath>$(PATH_7D2D_MANAGED)\System.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Core">
+      <HintPath>$(PATH_7D2D_MANAGED)\System.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Xml.Linq">
+      <HintPath>$(PATH_7D2D_MANAGED)\System.Xml.Linq.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Data.DataSetExtensions">
+      <HintPath>$(PATH_7D2D_MANAGED)\System.Data.DataSetExtensions.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Data">
+      <HintPath>$(PATH_7D2D_MANAGED)\System.Data.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Xml">
+      <HintPath>$(PATH_7D2D_MANAGED)\System.Xml.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine">
+      <HintPath>D:\7 Days to Die Dedicated Server - DF\7DaysToDieServer_Data\Managed\UnityEngine.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.AudioModule">
+      <HintPath>D:\7 Days to Die Dedicated Server - DF\7DaysToDieServer_Data\Managed\UnityEngine.AudioModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.CoreModule">
+      <HintPath>D:\7 Days to Die Dedicated Server - DF\7DaysToDieServer_Data\Managed\UnityEngine.CoreModule.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Harmony\BlockButtonPush.cs" />
+    <Compile Include="Harmony\ElectricityButtonsPush.cs" />
+    <Compile Include="Harmony\Gates\AndGate.cs" />
+    <Compile Include="Harmony\Gates\Gate.cs" />
+    <Compile Include="Harmony\Gates\Gates.cs" />
+    <Compile Include="Harmony\Gates\NandGate.cs" />
+    <Compile Include="Harmony\Gates\NorGate.cs" />
+    <Compile Include="Harmony\Gates\OrGate.cs" />
+    <Compile Include="Harmony\Gates\XNorGate.cs" />
+    <Compile Include="Harmony\Gates\XorGate.cs" />
+    <Compile Include="Harmony\PowerPushButton.cs" />
+    <Compile Include="Harmony\ReturnVariantHelper.cs" />
+    <Compile Include="Harmony\TileEntityButtonPush.cs" />
+    <Compile Include="Harmony\AssemblyInfo.cs" />
+    <Compile Include="Library\ModXmlPatcher.cs" />
+    <Compile Include="Harmony\LogicGateControl.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Config\blocks.a21.base.xml" />
+    <Content Include="Config\blocks.a21.df.xml" />
+    <Content Include="Config\blocks.a21.xml" />
+    <Content Include="Config\blocks.a20.xml" />
+    <Content Include="Config\blocks.ulm.xml" />
+    <Content Include="Config\blocks.xml" />
+    <Content Include="Config\items.a20.ulm.xml" />
+    <Content Include="Config\items.xml" />
+    <Content Include="Config\Localization.txt" />
+    <Content Include="Config\loot.xml" />
+    <Content Include="Config\progression.a21.df.xml" />
+    <Content Include="Config\progression.a21.xml" />
+    <Content Include="Config\progression.a20.xml" />
+    <Content Include="Config\progression.xml" />
+    <Content Include="Config\recipes.a21.df.xml" />
+    <Content Include="Config\recipes.a21.xml" />
+    <Content Include="Config\recipes.a20.xml" />
+    <Content Include="Config\recipes.a20.ulm.xml" />
+    <Content Include="Config\recipes.xml" />
+    <Content Include="ModInfo.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="README.md" />
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>
